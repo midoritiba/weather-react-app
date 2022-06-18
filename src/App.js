@@ -1,6 +1,35 @@
-
+import { useEffect, useState } from 'react'
+import {updateCity} from './helpers'
 
 function App() {
+
+  const [city, setCity] = useState('')
+  const [cityDetails, setCityDetails] = useState('')
+  const [weatherDetails, setWeatherDetails] = useState({})
+
+
+  const submitHandler = (e) => {
+    e.preventDefault()
+    setCity(e.target.elements.city.value)
+    e.target.elements.city.value = '' 
+  }
+
+  useEffect(() => {
+
+    if(city){
+      updateCity(city)
+      .then(data => {
+        setCityDetails(data.cityDetails)
+        setWeatherDetails(data.weather)
+      })
+      .catch(err => console.log(err.message))
+    } else {
+      setCity('')
+      setWeatherDetails({})
+    }
+
+  },[city])
+ 
   return (
     <div className="container">
 
@@ -11,10 +40,23 @@ function App() {
         <h1>Weather App</h1>
       </div>
 
-      <form>
+      <form onSubmit={submitHandler}>
           <label for="city">Enter a location for weather information ⛅</label>
-          <input type="text" name="city" className="form-control" />
+          <input type="text" id='city' className="form-control" />
+          <input type="submit" value='Submit' />
       </form>
+
+      {weatherDetails !== {} && (
+        <div className="card">
+          
+          <h2>{cityDetails.EnglishName}</h2>
+          <div className="detail">
+              <p>{weatherDetails.WeatherText}</p>
+              <span>{weatherDetails.Temperature.Metric.Value}</span>
+              <span>&deg;C</span>
+          </div>
+        </div>
+      )}
      
     </div>
   );
