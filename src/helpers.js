@@ -1,8 +1,5 @@
 import axios from 'axios'
 
-  const API_KEY = process.env.REACT_APP_API_KEY
-
-
 export async function getCity(city){
     const API_KEY = process.env.REACT_APP_API_KEY
     const response = await axios.get(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${API_KEY}&q=${city}`)

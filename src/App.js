@@ -25,6 +25,7 @@ function App() {
       .catch(err => console.log(err.message))
     } else {
       setCity('')
+      setCityDetails('')
       setWeatherDetails({})
     }
 
@@ -43,17 +44,23 @@ function App() {
       <form onSubmit={submitHandler}>
           <label for="city">Enter a location for weather information ⛅</label>
           <input type="text" id='city' className="form-control" />
-          <input type="submit" value='Submit' />
+          <input type="submit" id='btn' value='Submit' />
       </form>
 
-      {weatherDetails !== {} && (
+      {Object.keys(weatherDetails).length !== 0 && cityDetails.length !== 0 && (
         <div className="card">
-          
+
+          <img src={weatherDetails.IsDayTime ? require('./images/day.png') :require('./images/night.png') } alt='' className='time'/>
+          {/* <div className="icon">
+            <img src="" alt="" />
+          </div> */}
+          <div className="details">
           <h2>{cityDetails.EnglishName}</h2>
           <div className="detail">
               <p>{weatherDetails.WeatherText}</p>
               <span>{weatherDetails.Temperature.Metric.Value}</span>
               <span>&deg;C</span>
+          </div>
           </div>
         </div>
       )}

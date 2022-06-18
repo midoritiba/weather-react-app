@@ -2,7 +2,16 @@ import React from 'react'
 
 const Card = () => {
   return (
-    <div>Card</div>
+    <div class="card display-none">
+        <img src="" alt="" className="time" />
+        <div class="icon">
+            <img src="" alt=""/>
+        </div>
+
+        <div class="details">
+
+        </div>
+    </div>
   )
 }
 
