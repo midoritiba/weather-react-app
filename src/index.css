@@ -78,6 +78,11 @@ label{
   color: white;
   font-weight: bold;
   margin: 10px 0;
+  cursor: pointer;
+}
+
+#btn:hover{
+  background-color: #FF0066;
 }
 
 .card{
