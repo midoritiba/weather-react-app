@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import {updateCity} from './helpers'
+import Card from './components/Card'
 
 function App() {
 
@@ -48,21 +49,7 @@ function App() {
       </form>
 
       {Object.keys(weatherDetails).length !== 0 && cityDetails.length !== 0 && (
-        <div className="card">
-
-          <img src={weatherDetails.IsDayTime ? require('./images/day.png') :require('./images/night.png') } alt='' className='time'/>
-          {/* <div className="icon">
-            <img src="" alt="" />
-          </div> */}
-          <div className="details">
-          <h2>{cityDetails.EnglishName}</h2>
-          <div className="detail">
-              <p>{weatherDetails.WeatherText}</p>
-              <span>{weatherDetails.Temperature.Metric.Value}</span>
-              <span>&deg;C</span>
-          </div>
-          </div>
-        </div>
+        <Card weatherDetails={weatherDetails} cityDetails={cityDetails}/>
       )}
      
     </div>
