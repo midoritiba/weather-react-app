@@ -24,6 +24,7 @@ function App() {
         setWeatherDetails(data.weather)
       })
       .catch(err => console.log(err.message))
+    
     } else {
       setCity('')
       setCityDetails('')
@@ -43,7 +44,7 @@ function App() {
       </div>
 
       <form onSubmit={submitHandler}>
-          <label for="city">Enter a location for weather information ⛅</label>
+          <label htmlfor="city">Enter a location for weather information ⛅</label>
           <input type="text" id='city' className="form-control" />
           <input type="submit" id='btn' value='Submit' />
       </form>
