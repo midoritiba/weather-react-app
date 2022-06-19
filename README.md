@@ -19,3 +19,4 @@ http://dataservice.accuweather.com/locations/v1/cities/search
 - Current Conditions (GET)
 http://dataservice.accuweather.com/currentconditions/v1/{locationKey}
 
+# weather-react-app
