@@ -1,4 +1,4 @@
-# Weather React App
+# Weather React App 🌤
 
 For this project we get access to a sampling of AccuWeather API endpoints - City and Current Conditions for our case.
 
@@ -18,5 +18,3 @@ http://dataservice.accuweather.com/locations/v1/cities/search
 
 - Current Conditions (GET)
 http://dataservice.accuweather.com/currentconditions/v1/{locationKey}
-
-# weather-react-app
